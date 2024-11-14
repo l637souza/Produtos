@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>TRABALHO</title>
+    <style>
+    body{
+        max-width: 400px;
+        font-family: gotham, arial, helvetica, sans-serif;
+        font-size: 18px;
+        padding: 20px;
+        margin: 0 auto !important;
+        background-color: rgb(163, 255, 255);
+    }
+    input{
+        border-radius: 20px;
+        margin-left: 30px
+    }
+    .menu a{
+        text-decoration: none;
+    }
+    button{
+        margin-left: 60px;
+    }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <a href="./index.html"> HOME</a>
+        <a href="./integrantes.html"> COMPONENTES</a>
+        <a href="./objetivo.html"> OBJETIVO </a>
+        <br><br>
+    </div>
+    <input type="text" placeholder="Nome" id="nome"></input> <br><br>
+    <input type="number" placeholder="Quantidade" id="quant"> </input><br><br>
+    <input type="number" placeholder="Preço" id="preco"> </input><br><br>
+    <button onclick="cad()">CADASTRAR</button>
+    <br><br><br>
+    <div id="resul"> </div>
+    <script>
+            let produ = []
+        function cad(){
+            let prod = document.getElementById("nome").value;
+            let qnt = document.getElementById("quant").value;
+            let preco = document.getElementById("preco").value; 
+
+            if (nome === "" || quant === "" || preco === "") {            
+                alert("Por favor, preencha todos os campos.");            
+            return;
+        }
+
+            produ.push({nome:prod, quant:qnt, preco:preco});
+            let res = document.getElementById("resul");        
+            res.innerHTML = "";
+
+            for(let i = 0; i < produ.length; i++) { 
+            res.innerHTML += "Produto: " + produ[i].nome + "<br>" + "Quantidade: " + produ[i].quant + "<br>" + "Preço: R$" + produ[i].preco + "<br><br>";
+
+            }
+            document.getElementById("nome").value = "";        
+            document.getElementById("quant").value = "";        
+            document.getElementById("preco").value = "";
+
+        }
+    </script>
+</body>
+</html>
